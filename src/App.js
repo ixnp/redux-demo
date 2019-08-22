@@ -20,7 +20,7 @@ export default class App extends React.Component {
   }  
 
   decrement = () => {
-    if(this.state.count >= 0 &&  this.state.count-this.state.value > 0){
+    if(this.state.count >= 0 &&  this.state.count-this.state.value >= 0){
       this.setState({count:this.state.count-this.state.value}) 
     } 
    
