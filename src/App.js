@@ -2,12 +2,12 @@ import React from 'react'
 import Counter from './component/Counter'
 import { createStore } from 'redux'
 
-const initalState = {
+const iinitialState = {
     count:0,
     message:''
 }
 
-const reducer = (state=initalState, action) => {
+const reducer = (state=initialState, action) => {
   switch(action.type){
     case 'INCREASE':
       
