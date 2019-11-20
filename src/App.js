@@ -2,7 +2,7 @@ import React from 'react'
 import Counter from './component/Counter'
 import { createStore } from 'redux'
 
-const iinitialState = {
+const initialState = {
     count:0,
     message:''
 }
