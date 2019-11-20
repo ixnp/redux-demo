@@ -3,17 +3,17 @@ import Counter from './component/Counter'
 import { createStore } from 'redux'
 
 const initalState = {
-    count:0
+    count:0,
+    message:''
 }
 
 const reducer = (state=initalState, action) => {
   switch(action.type){
     case 'INCREASE':
-      console.log('state: ', state.count+action.payload)
-      return {...state, count: state.count+action.payload}
+      
+      return {...state, count: state.count, message: action.payload}
     case 'DECREASE':
-      console.log('state: ', state.count-action.payload)
-          return {...state, count: state.count-action.payload}
+          return {...state, count: state.count, message: action.payload}
       
         default:
           return state
