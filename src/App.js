@@ -1,41 +1,52 @@
-import React from 'react'
+
+import React from 'react';
 import './App.css';
-import Counter from './component/Counter'
+import Counter from './components/Counter'
+import Number from './components/Number'
 import { createStore } from 'redux'
 
 
 const initialState = {
     count:0,
-    message:''
-}
+    value:1,
+    message: ''
 
-const reducer = (state=initialState, action) => {
-  switch(action.type){
-    case 'INCREASE':
-      
-      return {...state, count: state.count+1, message: action.payload}
-    case 'DECREASE':
-          return {...state, count: state.count-1, message: action.payload}
-      
-        default:
-          return state
   }
 
+const reducer = (state=initialState, action) => {
+
+  switch(action.type){
+    case 'INCREASE':
+      return {...state, count: state.count+parseInt(state.value), message: action.payload}
+    case 'DECREASE':
+      if(state.value <= state.count ){
+        return {...state, count: state.count-parseInt(state.value), message: action.payload}
+      } 
+      return state
+    case 'SETVALUE':
+      return {...state, value: action.payload}
+    default: 
+      return state  
+  }
 }
 export const store = createStore(reducer)
 
 export class App extends React.Component {
+
 
   render(){
 
     store.subscribe(()=>{
       this.forceUpdate()
     })
-    
+    console.log(store)
   return(
     <div class="container">
-      <Counter />
+
+      <Number/>
+      <Counter  />
     </div>
-  )
-  }
+    );
+  } 
 }
+
